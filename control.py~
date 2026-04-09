@@ -1,0 +1,6 @@
+import mujoco
+
+TEST_MODEL_PATH = "model.xml"
+
+
+test_model = mujoco.MjModel.from_xml_path(TEST_MODEL_PATH)
