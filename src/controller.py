@@ -52,7 +52,7 @@ class RandomMLController(BaseMLController):
     def __init__(self, torque_scale: float = 1.0, seed: Optional[int] = None):
         self._rng = np.random.default_rng(seed)
         self._torque_scale = torque_scale
-        self._current = np.zeros(2)
+        self._current = [100,100] #np.zeros(2)
 
     def predict(self, observation: ArmObservation) -> ArmAction:
         # Smooth random walk (low-pass filter)

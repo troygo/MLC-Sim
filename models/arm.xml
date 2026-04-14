@@ -22,6 +22,16 @@
     <material name="target"    rgba="1.0 0.2 0.2 0.7"/>
   </asset>
 
+  <asset>
+    <mesh file="../mesh/base.stl"/>
+  </asset>
+  <asset>
+    <mesh file="../mesh/connector.stl"/>
+  </asset>
+  <asset>
+    <mesh file="../mesh/joint.stl"/>
+  </asset>
+
   <worldbody>
 
     <!-- Ground -->
@@ -29,19 +39,24 @@
 
     <!-- Fixed base -->
     <body name="base" pos="0 0 0.1">
-      <geom type="cylinder" size="0.05 0.1" material="joint_cap"/>
+      <geom type="mesh" mesh="base" size="0.05 0.1" material="joint_cap"/>
 
       <!-- === Link 1 (shoulder) === -->
       <body name="link1" pos="0 0 0.1">
+        <geom type="mesh" mesh="connector"/>
+
         <joint name="shoulder" type="hinge" axis="0 0 1"
                range="-3.14159 3.14159" damping="0.5" armature="0.1"/>
         <geom type="capsule" fromto="0 0 0  0.3 0 0" size="0.025" material="link"/>
         <geom type="sphere"  pos="0 0 0"              size="0.035" material="joint_cap"/>
+        
 
         <!-- === Link 2 (elbow) === -->
         <body name="link2" pos="0.3 0 0">
           <joint name="elbow" type="hinge" axis="0 0 1"
                  range="-2.617 2.617" damping="0.3" armature="0.05"/>
+          
+          <geom type="mesh" mesh="joint"/>
           <geom type="capsule" fromto="0 0 0  0.25 0 0" size="0.02"  material="link"/>
           <geom type="sphere"  pos="0 0 0"               size="0.030" material="joint_cap"/>
           <!-- End-effector -->

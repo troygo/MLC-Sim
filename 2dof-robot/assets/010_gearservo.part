@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "a8428e0956eeb9cb5dc0837b",
+    "documentMicroversion": "bbe88692980d13eed5afe255",
+    "elementId": "91a2e567d7458c8aef34d08a",
+    "fullConfiguration": "default",
+    "id": "MbIyIJvntM4ydDhgo",
+    "isStandardContent": false,
+    "name": "010_gearservo <1>",
+    "partId": "JHD",
+    "suppressed": false,
+    "type": "Part"
+}
