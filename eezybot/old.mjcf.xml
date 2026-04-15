@@ -1,0 +1,124 @@
+<mujoco model="2dof-robot">
+  <default>
+    <default class="robot">
+      <default class="visual">
+        <geom material="visualgeom" contype="0" conaffinity="0" group="2" />
+      </default>
+      <default class="collision">
+        <geom material="collision_material" condim="3" contype="0" conaffinity="1" priority="1" group="1" solref="0.005 1" solimp="0.99 0.999 1e-05" friction="1 0.01 0.01" />
+      </default>
+    </default>
+  </default>
+
+  <compiler angle="radian" meshdir="assets"/>
+
+  <asset>
+    <texture type="2d" name="groundplane" builtin="checker"
+        rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="300" height="300" mark="edge" markrgb="0.8 0.8 0.8"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="5 5" reflectance="0.2"/>
+  </asset>
+
+  <asset>
+    <material name="019_cover_material" rgba="0.843137 0.352941 0 1" />
+    <material name="mg946r_material" rgba="0.262745 0.282353 0.301961 1" />
+    <material name="020_ball_material" rgba="0.737255 0.937255 0.917647 1" />
+    <material name="mg946r_piattelo_material" rgba="0.0431373 0.0392157 0.0392157 1" />
+    <material name="606_material" rgba="0.901961 0.901961 0.901961 1" />
+    <material name="default_material" rgba="0.7 0.7 0.7 1" />
+    <material name="collision_material" rgba="1.0 0.28 0.1 0.9" />
+    <mesh name="019_cover.stl" file="019_cover.stl" />
+    <mesh name="013_lower_base.stl" file="013_lower_base.stl" />
+    <mesh name="mg946r.stl" file="mg946r.stl" />
+    <mesh name="020_ball.stl" file="020_ball.stl" />
+    <mesh name="010_gearservo.stl" file="010_gearservo.stl" />
+    <mesh name="mg946r_piattelo.stl" file="mg946r_piattelo.stl" />
+    <mesh name="012_base.stl" file="012_base.stl" />
+    <mesh name="606.stl" file="606.stl" />
+  </asset>
+
+  <worldbody>
+    <geom name="floor" type="plane" size="0 0 0.05" material="groundplane"/>
+
+
+    <body name="ebamk2_01" pos="0.00000000 0.00000000 0.00000000" quat="1 0 0 0" childclass="robot">
+      <freejoint name="floating_base" />
+      <geom name="ebamk2_01_collision_0" pos="0 0 0.055" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="019_cover.stl" class="collision" />
+      <geom name="ebamk2_01_collision_1" pos="0 -0 0.034" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="013_lower_base.stl" class="collision" />
+      <geom name="ebamk2_01_collision_2" pos="-0.06605 -0 0.0085" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="mg946r.stl" class="collision" />
+      <geom name="ebamk2_01_collision_3" pos="0 0.0309123 0.0428783" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_4" pos="-0.0563 -0.00075 0.04445" quat="0.4999981633974483 -0.49999999999662686 -0.5000018366025516 0.49999999999662686" type="mesh" mesh="010_gearservo.stl" class="collision" />
+      <geom name="ebamk2_01_collision_5" pos="-0.0563 -0 0.0459" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="mg946r_piattelo.stl" class="collision" />
+      <geom name="ebamk2_01_collision_6" pos="0 0 0" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="012_base.stl" class="collision" />
+      <geom name="ebamk2_01_collision_7" pos="0 0 0.037" quat="1.0 0.0 0.0 0.0" type="mesh" mesh="606.stl" class="collision" />
+      <geom name="ebamk2_01_collision_8" pos="0.0181698 -0.0250086 0.0428783" quat="0.30901895491635295 0.0 -0.0 -0.9510558792744015" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_9" pos="0.0261001 0.0165636 0.0428783" quat="0.8763065955319068 0.0 -0.0 -0.48175382782836196" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_10" pos="-0.0113796 -0.0287415 0.0428783" quat="0.18738206856923498 0.0 0.0 0.9822871068983419" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_11" pos="0.00387434 -0.0306685 0.0428783" quat="0.06278999429089267 0.0 -0.0 -0.9980267614733332" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_12" pos="0.0148921 0.0270886 0.0428783" quat="0.9685831393153369 0.0 -0.0 -0.24868997212201094" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_13" pos="-0.0308513 0.001941 0.0428783" quat="0.7289701586566885 0.0 0.0 0.6845454753250819" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_14" pos="0.00768757 0.0299411 0.0428783" quat="0.9921147271510997 0.0 -0.0 -0.12533302904621366" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_15" pos="0.0303647 -0.00579238 0.0428783" quat="0.6374247163463563 0.0 -0.0 -0.7705126416813466" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_16" pos="0.0308513 0.001941 0.0428783" quat="0.7289701586566885 0.0 -0.0 -0.6845454753250819" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_17" pos="-0.0303647 -0.00579238 0.0428783" quat="0.6374247163463563 0.0 0.0 0.7705126416813466" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_18" pos="-0.0261001 0.0165636 0.0428783" quat="0.8763065955319068 0.0 0.0 0.48175382782836196" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_19" pos="0.0238183 -0.0197042 0.0428783" quat="0.42577780338849947 0.0 -0.0 -0.9048277527472642" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_20" pos="-0.0148921 0.0270886 0.0428783" quat="0.9685831393153369 0.0 0.0 0.24868997212201094" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_21" pos="0.0113796 -0.0287415 0.0428783" quat="0.18738206856923498 0.0 -0.0 -0.9822871068983419" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_22" pos="0.0211609 0.0225341 0.0428783" quat="0.929776529485521 0.0 -0.0 -0.3681244425705254" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_23" pos="-0.0181698 -0.0250086 0.0428783" quat="0.30901895491635295 0.0 0.0 0.9510558792744015" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_24" pos="-0.0211609 0.0225341 0.0428783" quat="0.929776529485521 0.0 0.0 0.3681244425705254" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_25" pos="-0.0238183 -0.0197042 0.0428783" quat="0.42577780338849947 0.0 0.0 0.9048277527472642" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_26" pos="-0.00768757 0.0299411 0.0428783" quat="0.9921147271510997 0.0 0.0 0.12533302904621366" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_27" pos="0.0279703 -0.0131618 0.0428783" quat="0.535826498745442 0.0 -0.0 -0.8443281134974725" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_28" pos="-0.00387434 -0.0306685 0.0428783" quat="0.06278999429089267 0.0 0.0 0.9980267614733332" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_29" pos="0.0293993 0.00955242 0.0428783" quat="0.8090161307517588 0.0 -0.0 -0.5877864409659797" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_30" pos="-0.0279703 -0.0131618 0.0428783" quat="0.535826498745442 0.0 0.0 0.8443281134974725" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_collision_31" pos="-0.0293993 0.00955242 0.0428783" quat="0.8090161307517588 0.0 0.0 0.5877864409659797" type="mesh" mesh="020_ball.stl" class="collision" />
+      <geom name="ebamk2_01_visual_0" pos="0 0 0.055" quat="1.0 0.0 0.0 0.0" material="019_cover_material" type="mesh" mesh="019_cover.stl" class="visual" />
+      <geom name="ebamk2_01_visual_1" pos="0 -0 0.034" quat="1.0 0.0 0.0 0.0" material="019_cover_material" type="mesh" mesh="013_lower_base.stl" class="visual" />
+      <geom name="ebamk2_01_visual_2" pos="-0.06605 -0 0.0085" quat="1.0 0.0 0.0 0.0" material="mg946r_material" type="mesh" mesh="mg946r.stl" class="visual" />
+      <geom name="ebamk2_01_visual_3" pos="0 0.0309123 0.0428783" quat="1.0 0.0 0.0 0.0" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_4" pos="-0.0563 -0.00075 0.04445" quat="0.4999981633974483 -0.49999999999662686 -0.5000018366025516 0.49999999999662686" material="019_cover_material" type="mesh" mesh="010_gearservo.stl" class="visual" />
+      <geom name="ebamk2_01_visual_5" pos="-0.0563 -0 0.0459" quat="1.0 0.0 0.0 0.0" material="mg946r_piattelo_material" type="mesh" mesh="mg946r_piattelo.stl" class="visual" />
+      <geom name="ebamk2_01_visual_6" pos="0 0 0" quat="1.0 0.0 0.0 0.0" material="019_cover_material" type="mesh" mesh="012_base.stl" class="visual" />
+      <geom name="ebamk2_01_visual_7" pos="0 0 0.037" quat="1.0 0.0 0.0 0.0" material="606_material" type="mesh" mesh="606.stl" class="visual" />
+      <geom name="ebamk2_01_visual_8" pos="0.0181698 -0.0250086 0.0428783" quat="0.30901895491635295 0.0 -0.0 -0.9510558792744015" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_9" pos="0.0261001 0.0165636 0.0428783" quat="0.8763065955319068 0.0 -0.0 -0.48175382782836196" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_10" pos="-0.0113796 -0.0287415 0.0428783" quat="0.18738206856923498 0.0 0.0 0.9822871068983419" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_11" pos="0.00387434 -0.0306685 0.0428783" quat="0.06278999429089267 0.0 -0.0 -0.9980267614733332" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_12" pos="0.0148921 0.0270886 0.0428783" quat="0.9685831393153369 0.0 -0.0 -0.24868997212201094" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_13" pos="-0.0308513 0.001941 0.0428783" quat="0.7289701586566885 0.0 0.0 0.6845454753250819" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_14" pos="0.00768757 0.0299411 0.0428783" quat="0.9921147271510997 0.0 -0.0 -0.12533302904621366" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_15" pos="0.0303647 -0.00579238 0.0428783" quat="0.6374247163463563 0.0 -0.0 -0.7705126416813466" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_16" pos="0.0308513 0.001941 0.0428783" quat="0.7289701586566885 0.0 -0.0 -0.6845454753250819" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_17" pos="-0.0303647 -0.00579238 0.0428783" quat="0.6374247163463563 0.0 0.0 0.7705126416813466" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_18" pos="-0.0261001 0.0165636 0.0428783" quat="0.8763065955319068 0.0 0.0 0.48175382782836196" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_19" pos="0.0238183 -0.0197042 0.0428783" quat="0.42577780338849947 0.0 -0.0 -0.9048277527472642" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_20" pos="-0.0148921 0.0270886 0.0428783" quat="0.9685831393153369 0.0 0.0 0.24868997212201094" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_21" pos="0.0113796 -0.0287415 0.0428783" quat="0.18738206856923498 0.0 -0.0 -0.9822871068983419" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_22" pos="0.0211609 0.0225341 0.0428783" quat="0.929776529485521 0.0 -0.0 -0.3681244425705254" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_23" pos="-0.0181698 -0.0250086 0.0428783" quat="0.30901895491635295 0.0 0.0 0.9510558792744015" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_24" pos="-0.0211609 0.0225341 0.0428783" quat="0.929776529485521 0.0 0.0 0.3681244425705254" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_25" pos="-0.0238183 -0.0197042 0.0428783" quat="0.42577780338849947 0.0 0.0 0.9048277527472642" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_26" pos="-0.00768757 0.0299411 0.0428783" quat="0.9921147271510997 0.0 0.0 0.12533302904621366" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_27" pos="0.0279703 -0.0131618 0.0428783" quat="0.535826498745442 0.0 -0.0 -0.8443281134974725" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_28" pos="-0.00387434 -0.0306685 0.0428783" quat="0.06278999429089267 0.0 0.0 0.9980267614733332" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_29" pos="0.0293993 0.00955242 0.0428783" quat="0.8090161307517588 0.0 -0.0 -0.5877864409659797" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_30" pos="-0.0279703 -0.0131618 0.0428783" quat="0.535826498745442 0.0 0.0 0.8443281134974725" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <geom name="ebamk2_01_visual_31" pos="-0.0293993 0.00955242 0.0428783" quat="0.8090161307517588 0.0 0.0 0.5877864409659797" material="020_ball_material" type="mesh" mesh="020_ball.stl" class="visual" />
+      <site name="ebamk2_01_site" pos="0 0 0" quat="1 0 0 0" />
+      <camera name="front_camera" mode="track" fovy="90.0" quat="4.329780281177467e-17 4.329780281177466e-17 0.7071067811865475 0.7071067811865476" pos="0.0 2.0 0.5" />
+      <camera name="side_camera" mode="track" fovy="90.0" quat="-0.5 -0.4999999999999999 0.5 0.5000000000000001" pos="-2.0 0.0 0.5" />
+    </body>
+  </worldbody>
+
+  <actuator />
+
+  <sensor>
+    <framepos name="ebamk2_01_site_pos" objtype="site" objname="ebamk2_01_site" />
+    <framequat name="ebamk2_01_site_quat" objtype="site" objname="ebamk2_01_site" />
+    <framelinvel name="ebamk2_01_site_linvel" objtype="site" objname="ebamk2_01_site" />
+    <frameangvel name="ebamk2_01_site_angvel" objtype="site" objname="ebamk2_01_site" />
+    <velocimeter name="ebamk2_01_site_vel" site="ebamk2_01_site" />
+  </sensor>
+</mujoco>
